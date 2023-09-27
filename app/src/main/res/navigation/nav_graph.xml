@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/fragmentLogin">
 
@@ -27,6 +28,9 @@
             app:destination="@id/fragmentSignInWithGoogle"
             app:popUpTo="@id/fragmentLogin"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_fragmentLogin_to_fragmentphoneotp"
+            app:destination="@id/fragmentphoneotp" />
     </fragment>
     <fragment
         android:id="@+id/fragmentSignUp"
@@ -43,5 +47,37 @@
             app:destination="@id/fragmentSignInWithGoogle"
             app:popUpTo="@id/fragmentSignUp"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentphoneotp"
+        android:name="com.example.infobyte.ui.fragments.Fragmentphoneotp"
+        android:label="fragment_fragmentphoneotp"
+        tools:layout="@layout/fragment_fragmentphoneotp" >
+        <action
+            android:id="@+id/action_fragmentphoneotp_to_fragmentLogin"
+            app:destination="@id/fragmentLogin" />
+        <action
+            android:id="@+id/action_fragmentphoneotp_to_fragmententerotp"
+            app:destination="@id/fragmententerotp" />
+        <argument
+            android:name="mobilenumber"
+            app:argType="string" />
+        <argument
+            android:name="resendotp"
+            app:argType="com.google.firebase.auth.PhoneAuthCredential" />
+        <argument
+            android:name="mainotp"
+            app:argType="string" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/fragmententerotp"
+        android:name="com.example.infobyte.ui.fragments.Fragmententerotp"
+        android:label="fragment_fragmententerotp"
+        tools:layout="@layout/fragment_fragmententerotp" >
+        <action
+            android:id="@+id/action_fragmententerotp_to_fragmentphoneotp"
+            app:destination="@id/fragmentphoneotp" />
     </fragment>
 </navigation>

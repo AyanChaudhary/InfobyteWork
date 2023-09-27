@@ -31,6 +31,8 @@ class FragmentLogin: Fragment(R.layout.fragment_login) {
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
 
+        phonelogin()
+
         if (currentUser != null) {
             findNavController().navigate(R.id.action_fragmentLogin_to_fragmentSignInWithGoogle)
         }
@@ -82,7 +84,9 @@ class FragmentLogin: Fragment(R.layout.fragment_login) {
                 Toast.makeText(requireContext(), "Google sign in failed: ${e.message}", Toast.LENGTH_SHORT).show()
             }
         }
+
     }
+
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
@@ -94,5 +98,12 @@ class FragmentLogin: Fragment(R.layout.fragment_login) {
                     Toast.makeText(requireContext(), "Authentication failed", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+
+    private fun phonelogin(){
+        binding.phoneverify.setOnClickListener {
+            findNavController().navigate(R.id.action_fragmentLogin_to_fragmentphoneotp)
+        }
     }
 }
