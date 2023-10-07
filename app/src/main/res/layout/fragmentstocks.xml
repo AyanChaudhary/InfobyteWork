@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@drawable/frame_one" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mulish_semibold"
+                android:text="NIFTY 50"
+                android:textSize="8dp"
+
+                android:textColor="@color/bg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mulish_bold"
+                android:text="-$56.98"
+                android:textSize="16dp"
+
+                android:textColor="@color/bg" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@drawable/frame_two" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mulish_semibold"
+                android:text="SENSEX"
+                android:textSize="8dp"
+
+                android:textColor="@color/bg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mulish_bold"
+                android:text="$56.98"
+                android:textSize="16dp"
+
+                android:textColor="@color/bg" />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Watchlist"
+        android:fontFamily="@font/inria_sans"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="18dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:layout_editor_absoluteX="25dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginEnd="25dp"
+        android:fontFamily="@font/inter"
+        android:gravity="end"
+        android:text="+List"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <!-- ScrollView to contain single_block layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <!-- Use a LinearLayout to hold multiple included layouts vertically -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Include the layout multiple times -->
+            <include layout="@layout/single_block" />
+
+            <include layout="@layout/single_block" />
+
+            <include layout="@layout/single_block" />
+            <include layout="@layout/single_block" />
+
+            <include layout="@layout/single_block" />
+
+            <include layout="@layout/single_block" />
+            <include layout="@layout/single_block" />
+
+            <include layout="@layout/single_block" />
+
+            <include layout="@layout/single_block" />
+            <include layout="@layout/single_block" />
+
+            <include layout="@layout/single_block" />
+
+            <include layout="@layout/single_block" />
+
+            <include layout="@layout/single_block" />
+
+            <include layout="@layout/single_block" />
+
+            <include layout="@layout/single_block" />
+            <!-- Add more <include> tags for additional blocks as needed -->
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <include layout="@layout/bottom_nav" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

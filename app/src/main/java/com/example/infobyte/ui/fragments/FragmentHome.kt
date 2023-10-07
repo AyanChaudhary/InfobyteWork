@@ -12,7 +12,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FragmentHome: Fragment(R.layout.fragment_home) {
 
     private lateinit var binding : FragmentHomeBinding
@@ -49,6 +51,9 @@ class FragmentHome: Fragment(R.layout.fragment_home) {
         val sign_out_button = binding.logoutButton
         sign_out_button.setOnClickListener {
             signOutAndStartSignInActivity()
+        }
+        binding.btnToStocks.setOnClickListener {
+            findNavController().navigate(R.id.action_fragmentSignInWithGoogle_to_fragmentStocks)
         }
     }
     private fun signOutAndStartSignInActivity() {

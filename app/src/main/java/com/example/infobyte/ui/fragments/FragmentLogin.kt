@@ -16,8 +16,10 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.sign
 
+@AndroidEntryPoint
 class FragmentLogin: Fragment(R.layout.fragment_login) {
     private lateinit var binding : FragmentLoginBinding
     companion object {

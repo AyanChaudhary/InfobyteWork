@@ -15,7 +15,9 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FragmentSignUp: Fragment(R.layout.fragment_signup) {
     private lateinit var binding : FragmentSignupBinding
     companion object {

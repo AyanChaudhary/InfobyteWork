@@ -20,9 +20,10 @@ import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.TimeUnit
 
-
+@AndroidEntryPoint
 class Fragmententerotp : Fragment() {
   private val binding by lazy {
 FragmentFragmententerotpBinding.inflate(layoutInflater)

@@ -14,6 +14,9 @@
             app:destination="@id/fragmentLogin"
             app:popUpTo="@id/fragmentSignInWithGoogle"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_fragmentSignInWithGoogle_to_fragmentStocks"
+            app:destination="@id/fragmentStocks" />
     </fragment>
     <fragment
         android:id="@+id/fragmentLogin"
@@ -80,4 +83,8 @@
             android:id="@+id/action_fragmententerotp_to_fragmentphoneotp"
             app:destination="@id/fragmentphoneotp" />
     </fragment>
+    <fragment
+        android:id="@+id/fragmentStocks"
+        android:name="com.example.infobyte.ui.fragments.FragmentStocks"
+        android:label="FragmentStocks" />
 </navigation>
