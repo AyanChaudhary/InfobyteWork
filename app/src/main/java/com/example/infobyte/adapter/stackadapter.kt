@@ -10,7 +10,7 @@ import com.example.infobyte.databinding.SingleBlockBinding
 
 class stackadapter (val stocklist: ArrayList<stocksItem>): RecyclerView.Adapter<stackadapter.mycustomaddpter>() {
  class mycustomaddpter(val binding:SingleBlockBinding):RecyclerView.ViewHolder(binding.root) {
-        hol
+
 
     }
 
@@ -24,7 +24,8 @@ class stackadapter (val stocklist: ArrayList<stocksItem>): RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(holder: mycustomaddpter, position: Int) {
-        holder.binding.chamblfert=stocklist[position].NAME.toString()
-        holder.binding.chambalfeertiliser=stocklist[position].LTP.toString()
+        holder.binding.chamblfert.text= stocklist[position].NAME
+
+
     }
 }
