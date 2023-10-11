@@ -7,5 +7,6 @@ import retrofit2.http.Query
 interface StocksApi {
 
     @GET("/macros/echo")
-    suspend fun getAllStocks(@Query("user_content_key")user_content_key : String, @Query("lib")lib : String) : stocks
+    suspend fun getAllStocks(@Query("user_content_key")user_content_key : String,
+                             @Query("lib")lib : String) : stocks
 }
