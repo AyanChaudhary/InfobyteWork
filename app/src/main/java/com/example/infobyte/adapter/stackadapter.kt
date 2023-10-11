@@ -25,6 +25,10 @@ class stackadapter (val stocklist: ArrayList<stocksItem>): RecyclerView.Adapter<
 
     override fun onBindViewHolder(holder: mycustomaddpter, position: Int) {
         holder.binding.chamblfert.text= stocklist[position].NAME
+        holder.binding.chambalfeertiliser.text=stocklist[position].SYMBOLE
+        holder.binding.stockprice.text=stocklist[position].TODAY_HIGH.toString()
+        holder.binding.stockpercecntage.text=stocklist[position].ChangeInPRICE.toString()
+        holder.binding.stockaddition.text=stocklist[position].Perc_changeLong.toString()
 
 
     }
