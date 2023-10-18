@@ -1,5 +1,6 @@
 package com.example.infobyte.data.models
 
+
 data class stocksItem(
     val ChangeInPRICE: Double,
     val ChangeInPrice: Double,
