@@ -1,9 +1,13 @@
 package com.example.infobyte.di
+import android.content.Context
+import androidx.room.Room
 import com.example.infobyte.Others.Constants
 import com.example.infobyte.data.remote.StocksApi
+import com.example.infobyte.db.StockDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -35,5 +39,18 @@ object AppModule {
             .build()
             .create(StocksApi::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun provideStocksDatabase(
+        @ApplicationContext app: Context
+    )= Room.databaseBuilder(
+        app,StockDatabase::class.java,
+        "stocks_table"
+    ).build()
+
+    @Singleton
+    @Provides
+    fun provideStocksDao(db:StockDatabase)=db.stocksDAO()
 
 }
