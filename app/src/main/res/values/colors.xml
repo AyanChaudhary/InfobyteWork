@@ -11,4 +11,8 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="bg">#F1F1F1</color>
+    <color name="_2196f3">#2196F3</color>
+    <color name="tealblue">#2196F3</color>
+    <color name="_398674">#398674</color>
+    <color name="_3986741">#398674</color>
 </resources>

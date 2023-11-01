@@ -14,7 +14,7 @@
         android:gravity="center"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:text="Sign Up"
+        android:text="@string/sign_up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:padding="15dp"
             android:textColor="@color/black"
-            android:text="Email"/>
+            android:text="@string/email3"/>
         <EditText
             android:id="@+id/et_email"
             android:layout_width="match_parent"
@@ -43,13 +43,13 @@
             android:padding="15dp"
             android:inputType="textEmailAddress"
             android:background="@drawable/outlinebg"
-            android:hint="Email"/>
+            android:hint="@string/email4"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
             android:textColor="@color/black"
-            android:text="Password"/>
+            android:text="@string/password1"/>
         <EditText
             android:id="@+id/et_password"
             android:layout_width="match_parent"
@@ -57,13 +57,13 @@
             android:padding="15dp"
             android:inputType="textPassword"
             android:background="@drawable/outlinebg"
-            android:hint="Password"/>
+            android:hint="@string/password2"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginTop="20dp"
-            android:text="OR\nContinue with"/>
+            android:text="@string/or_ncontinue_with1"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -112,7 +112,7 @@
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:background="@drawable/outlinebg"
-            android:text="SIGN UP"
+            android:text="@string/sign_up4"
             android:textStyle="bold"
             android:layout_gravity="center"
             />
@@ -122,7 +122,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginTop="20dp"
-            android:text="Already have an account?"/>
+            android:text="@string/already_have_an_account"/>
 
 
 

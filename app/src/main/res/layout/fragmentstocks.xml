@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mulish_semibold"
-                android:text="NIFTY 50"
+                android:text="@string/nifty_50"
                 android:textSize="8dp"
 
                 android:textColor="@color/bg" />
@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mulish_semibold"
-                android:text="SENSEX"
+                android:text="@string/sensex"
                 android:textSize="8dp"
 
                 android:textColor="@color/bg" />
@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mulish_bold"
-                android:text="$56.98"
+                android:text="@string/_56_98"
                 android:textSize="16dp"
 
                 android:textColor="@color/bg" />
@@ -73,7 +73,7 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Watchlist"
+        android:text="@string/watchlist"
         android:fontFamily="@font/inria_sans"
         android:textColor="@color/black"
         android:textSize="30dp"
@@ -107,7 +107,6 @@
         tools:listitem="@layout/stock_item"
         android:id="@+id/stockrecycler"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
 
 
 
