@@ -12,60 +12,47 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.infobyte.Others.Constants
 import com.example.infobyte.Others.Resource
 import com.example.infobyte.R
-import com.example.infobyte.adapter.stackadapter
+import com.example.infobyte.adapter.stocksAdapter
 import com.example.infobyte.data.models.stocksItem
 import com.example.infobyte.databinding.FragmentstocksBinding
 import com.example.infobyte.ui.viewModels.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class FragmentStocks : Fragment(R.layout.fragmentstocks) {
     private lateinit var binding: FragmentstocksBinding
     private val viewModel: MainViewModel by viewModels()
-    private val stocklist=ArrayList<stocksItem>()
+    private lateinit var stockadapter: stocksAdapter
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding=FragmentstocksBinding.bind(view)
+        binding = FragmentstocksBinding.bind(view)
+        setUpRecyclerView()
+        viewModel.getAllStocksFromApi(Constants.user_content_key, Constants.lib)
 
-        viewModel.getAllStocks(Constants.user_content_key,Constants.lib)
-
-        viewModel.uiStateForStocks.observe(viewLifecycleOwner, Observer {
-            when(it){
-                is Resource.Success->{
-
-                    Log.d("TAG", "${it.data} ")
-                }
-                is Resource.Error -> {
-                    Snackbar.make(binding.root,"${it.message}", Snackbar.LENGTH_LONG).show()
-                }
-                is Resource.Loading -> {
-                    // show progress bar
-                }
-
-            }
-        })
-
-
-        //recyclerview code
-
-
-
-
-        binding.stockrecycler.layoutManager = LinearLayoutManager(requireContext())
-        binding.stockrecycler.adapter = stackadapter(stocklist)
-
-
-
-        binding.stockrecycler.layoutManager= LinearLayoutManager(requireContext())
-        binding.stockrecycler.adapter=stackadapter(stocklist)
-        binding.stockrecycler.hasFixedSize()
-
+        CoroutineScope(Dispatchers.Main).launch {
+            val list=viewModel.getAllStocksFromDb()
+//            Log.d("TAG", "${list}")
+            stockadapter.differ.submitList(list)
+        }
 
     }
-
-
+    private fun setUpRecyclerView() {
+        stockadapter = stocksAdapter()
+        binding.stockrecycler.apply {
+            adapter = stockadapter
+            layoutManager = LinearLayoutManager(activity)
+        }
+    }
 }
+
+
+
 
 

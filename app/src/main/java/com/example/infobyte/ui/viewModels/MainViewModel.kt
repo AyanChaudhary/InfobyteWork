@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.infobyte.Others.Resource
 import com.example.infobyte.data.models.stocks
+import com.example.infobyte.data.models.stocksItem
 import com.example.infobyte.repositories.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -18,13 +19,14 @@ class MainViewModel @Inject constructor(
 
     val uiStateForStocks: MutableLiveData<Resource<stocks>> = MutableLiveData()
 
-    fun getAllStocks(user_content_key:String, lib : String){
+    fun getAllStocksFromApi(user_content_key:String, lib : String){
         viewModelScope.launch {
-            val result = repository.getAllStocks(user_content_key,lib)
+            val result = repository.getAllStocksFromApi(user_content_key,lib)
             result.collectLatest { res->
                 when(res){
                     is Resource.Success->{
-                        uiStateForStocks.postValue(Resource.Success(res.data!!))
+                        for(stock in res.data!!)repository.insertStock(stock)
+//                        uiStateForStocks.postValue(Resource.Success(res.data))
                     }
                     is Resource.Error -> {
                         uiStateForStocks.postValue(Resource.Error(res.message!!))
@@ -37,4 +39,6 @@ class MainViewModel @Inject constructor(
             }
         }
     }
+    suspend fun getAllStocksFromDb()=repository.getAllStocksFromDb()
+
 }

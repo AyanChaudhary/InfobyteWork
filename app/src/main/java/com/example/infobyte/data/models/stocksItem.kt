@@ -1,17 +1,22 @@
 package com.example.infobyte.data.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
+
+@Entity(tableName = "stocks_table")
 data class stocksItem(
-    val ChangeInPRICE: Double,
-    val ChangeInPrice: Double,
-    val LTP: Double,
-    val NAME: String,
-    val P_D_CLOSE: Double,
-    val Perc_change: Double,
-    val Perc_changeLong: Double,
-    val SYMBOLE: String,
-    val TODAY_HIGH: Double,
-    val TODAY_LOW: Double,
-    val TODAY_OPEN: Double,
-    val TODAY_VOLUME: Int
+    var ChangeInPRICE: Double = 0.0,
+
+    val LTP: Double=0.0,
+    @PrimaryKey
+    val NAME: String="",
+    val P_D_CLOSE: Double=0.0,
+    val Perc_change: Double=0.0,
+    val Perc_changeLong: Double=0.0,
+    val SYMBOLE: String="",
+    val TODAY_HIGH: Double=0.0,
+    val TODAY_LOW: Double=0.0,
+    val TODAY_OPEN: Double=0.0,
+    val TODAY_VOLUME: Int=0
 )
